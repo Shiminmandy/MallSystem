@@ -6,7 +6,7 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 
-public class UserForm {
+public class UserLoginForm {
     //@NotBlank(message = "用户名不能为空")  //用于String 判断空格 不允许传空格
     @NotBlank
     //@NotNull
@@ -15,5 +15,4 @@ public class UserForm {
 
     private String password;
 
-    private String email;
 }
