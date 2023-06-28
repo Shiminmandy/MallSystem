@@ -78,21 +78,20 @@ public class UserController {
     public ResponseVo<User> userInfo(HttpSession session){
         log.info("/user sessionId={}",session.getId());
         User user = (User) session.getAttribute(MallConst.CURRENT_USER);
-        if (user == null){
-            return ResponseVo.error(ResponseEnum.NEED_LOGIN);
-        }
         return ResponseVo.success(user);
     }
 
     //登出功能
+    //TODO 判断登入状态, 使用拦截器 -- interceptor(url),AOP(包名)
     @PostMapping("/user/logout")
     public ResponseVo logout(HttpSession session){
         log.info("/user/logout sessionId={}",session.getId());
-        User user = (User) session.getAttribute(MallConst.CURRENT_USER);
-        if (user == null){
-            return ResponseVo.error(ResponseEnum.NEED_LOGIN);
-        }
+        //有拦截器，这里不需要判断是否登入了
+//        User user = (User) session.getAttribute(MallConst.CURRENT_USER);
+//        if (user == null){
+//            return ResponseVo.error(ResponseEnum.NEED_LOGIN);
+//        }
         session.removeAttribute(MallConst.CURRENT_USER);
-        return ResponseVo.success(user);
+        return ResponseVo.success();
     }
 }
