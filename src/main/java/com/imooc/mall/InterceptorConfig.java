@@ -10,6 +10,6 @@ public class InterceptorConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new UserLoginInterceptor())
                 .addPathPatterns("/**") //要拦截的
-                .excludePathPatterns("/user/login","/user/register"); //不要拦截的
+                .excludePathPatterns("/user/login","/user/register", "/categories", "/products"); //不要拦截的
     }
 }
