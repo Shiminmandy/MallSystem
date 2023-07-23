@@ -1,6 +1,5 @@
 package com.imooc.mall.vo;
 
-import com.imooc.mall.pojo.OrderItem;
 import com.imooc.mall.pojo.Shipping;
 import lombok.Data;
 
@@ -11,9 +10,11 @@ import java.util.List;
 @Data
 public class OrderVo {
     private Long orderNo;
+
     private BigDecimal payment;
 
     private Integer paymentType;
+
     private Integer postage;
 
     private Integer status;
@@ -27,7 +28,10 @@ public class OrderVo {
     private Date closeTime;
 
     private Date createTime;
-    private List<OrderItem> orderItemVoList;
+
+    private List<OrderItemVo> orderItemVoList;
+
     private Integer shippingId;
+
     private Shipping shippingVo;
 }
